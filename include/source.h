@@ -4,15 +4,13 @@
 const char *c_source =
 "#include <stdio.h>\n"
 "#include <string.h>\n"
-"#include <stdlib.h>\n\n"
+"#include <stdlib.h>\n"
+"\n"
 "int\n"
-"main(int argc,\n"
-"     char *argv[])\n"
-"{\n"
+"main(int argc, char *argv[]) {\n"
 "\tprintf(\"Hello World!\\n\");\n"
 "\treturn 0;\n"
-"}"
-;
+"}";
 
 const char *tex_source =
 "\\documentclass[8pt,a4j]{jreport}\n"
@@ -29,6 +27,5 @@ const char *tex_source =
 "%%%%empty: Not Print, plains: Print Footer, headings: Print Header.\n"
 "\\begin{document}\n"
 "Hello World!\n"
-"\\end{document}"
-;
+"\\end{document}";
 #endif
