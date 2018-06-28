@@ -2,8 +2,11 @@
 #define _MAKEFILE_H
 
 const char *c_make =
-"CC     = gcc\n"
-"FLAGS  = -g -Wall\n\n"
+"CC      = gcc\n"
+"FLAGS   = -g -Wall\n"
+"INCLUDE =\n"
+"LINK    =\n"
+"\n"
 "TARGET = %s\n"
 "OBJDIR = objs\n\n"
 "SOURCE = $(shell find src/ -name \\*.c)\n"
@@ -14,9 +17,11 @@ const char *c_make =
 "\t[ -d \"$(BINDIR)\" ] || mkdir -pv $(BINDIR)\n"
 "\tmake $(TARGET)\n\n"
 "$(TARGET):$(OBJS)\n"
-"\t$(CC) -o $@ $^ $(FLAGS)\n\n"
+"\t$(CC) -o $@ $^ $(FLAGS) $(LINK)\n"
+"\n"
 "$(OBJDIR)/%%.o:%%.c\n"
-"\t$(CC) -o $@ -c $<\n\n"
+"\t$(CC) -o $@ -c $< $(FLAGS) $(INCLUDE)\n"
+"\n"
 "clear:\n"
 "\t[ ! -d $(OBJDIR) ] || rm -rv $(OBJDIR)\n"
 "\t[ ! -f $(TARGET) ] || rm -v $(TARGET)\n\n"
